@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href='http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css' rel='stylesheet'>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;1,400;1,700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css" type="text/css">
+    </head>
+        <body>
+         <header>
+             <nav>
+                <h3 class='nav-header'><a href='#'>YoutubeToMp3</a></h3>
+             </nav>
+             <section class='first-section'>
+                <h1>Youtube To Mp3 Converter</h1>
+                <div class='inputs'>
+                <input type="text" id="url" placeholder='Paste Link Here'>
+                <input type="button" id="convert" value="Convert">
+                </div>
+             </section>
+         </header>
+         <section class="second-section">
+            <div class='info'>
+                <h3 class="info-h3">Instructions</h3>
+                <ol>
+                    <li>Copy From Youtube the Url</li>
+                    <li>Paste it in the place</li>
+                    <li>Click Convert</li>
+                </ol>
+            </div>
+            <div class='info'>
+                <h3 class="info-h3">Features</h3>
+                <ul>
+                    <li>No registeraion needed</li>
+                    <li>No ads</li>
+                    <li>One Click</li>
+                </ul>
+            </div>
+         </section>
+         <section class='third-section'>
+            <div>
+                <i class='ion-ios-copy'></i>
+                <h2>Copy</h2>
+                <p>Lorem ipsum dolor, uptates hic, quos eaque explicabo in</p>
+            </div>
+            <div>
+                <i class='ion-document-text'></i>
+                <h2>Paste</h2>
+                <p>Lorem ipsum dolor, uptates hic, quos eaque explicabo in</p>
+            </div>
+            <div>
+                <i class='ion-record'></i>
+                <h2>Click</h2>
+                <p>Lorem ipsum dolor, uptates hic, quos eaque explicabo in</p>
+            </div>
+            <div>
+                <i class='ion-happy-outline'></i>
+                <h2>Enjoy</h2>
+                <p>Lorem ipsum dolor, uptates hic, quos eaque explicabo in</p>
+            </div>
+         </section>      
+         <section class='fourth-section'>
+             <div>
+            <h2>
+               Its so easy to use!                
+            </h2>
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga molestias odio officia tempora, excepturi eaque repudiandae necessitatibus repellendus itaque ea aut in optio sapiente numquam error nihil. Officia, eveniet nihil.
+            </p>
+            </div>
+         </section>
+         <footer>
+             <div class="top-footer">
+                <p>Style insppired by mushimushi</p>
+                <p>Converting used with the help of ffmpeg</p>
+             </div>
+             <div class='bottom-footer'>
+                 <h3>The Bottom</h3>
+             </div>
+         </footer>   
+
+         <script>
+             const convertBtn = document.getElementById('convert');
+             let urlField = document.getElementById('url');
+
+             const ConvertAndDownload = async ()=>{
+                 let url = urlField.value;
+                 if(url)
+                await fetch('http://localhost:3001/', {
+                    method: 'post',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        url: url,
+                    })
+                })
+             }
+
+             convertBtn.addEventListener('click', ConvertAndDownload);
+         </script>
+        </body>
+</html>
